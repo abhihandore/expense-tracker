@@ -16,29 +16,22 @@ const App = () => {
   ]);
 
   const onAddExpenseDataHandler = (expense) => {
-    setExpenseData([...expenseData,{
-      id: expense.id,
-      title: expense.enteredTitle,
-      amount: expense.enteredAmount,
-      date: new Date(expense.enteredDate),
-    }])
-    // setExpenseData( (prevState) => {
-    //   return [...prevState, {
-    //     id: expense.id,
-    //     title: expense.enteredTitle,
-    //     amount: expense.enteredAmount,
-    //     date: new Date(expense.enteredDate),
-    //   }];
-    // } )
-    console.log(expenseData);
+    setExpenseData( (prevState) => {
+      return [{
+        id: expense.id,
+        title: expense.enteredTitle,
+        amount: expense.enteredAmount,
+        date: new Date(expense.enteredDate),
+      }, ...prevState];
+    });
   }
+  
 
   return (
     <div className="App">
       <h2>Let's start App</h2>
       <NewExpense onAddExpenseData={onAddExpenseDataHandler} />
       <Expenses data={expenseData} />
-      
     </div>
   );
 
