@@ -25,7 +25,6 @@ const App = () => {
       }, ...prevState];
     });
   }
-  
 
   return (
     <div className="App">
